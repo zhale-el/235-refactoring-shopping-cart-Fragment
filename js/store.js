@@ -23,6 +23,8 @@ const shopItemsContainer = document.querySelector(".shop-items");
 const basketProductsContainer = document.querySelector(".cart-items");
 const removeAllProductsBtn = document.querySelector("#remove-all-product");
 const cartTotalPriceElem = document.querySelector(".cart-total-price");
+const productFragment = document.createDocumentFragment();
+
 let userBasket = [];
 
 allProducts.forEach(function (product) {
@@ -57,8 +59,9 @@ allProducts.forEach(function (product) {
     productImageElem,
     productDetailContainer
   );
+  productFragment.append(productContainer);
 });
-// shopItemsContainer.append(productContainer);
+shopItemsContainer.append(productFragment);
 
 function addProductBasketArray(productId) {
   let mainProduct = allProducts.find(function (product) {
